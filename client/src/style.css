@@ -12,11 +12,11 @@
 	}
 
 	.form__item--label {
-		@apply left-4 top-[26%] text-xl pointer-events-none transition-all duration-300 ease-linear;
+		@apply left-4 pointer-events-none transition-all duration-200 ease-linear;
 	}
 
 	.form__item--input:focus + .form__item--label,
 	.form__item--input:valid + .form__item--label {
-		@apply text-xs font-semibold top-0;
+		@apply text-xs font-semibold top-0 ml-0;
 	}
 }

@@ -9,6 +9,10 @@ module.exports = {
 			// 	language: "url('/public/icons/language.svg')",
 			// },
 
+			screens: {
+				'2xl': '1450px',
+			},
+
 			colors: {
 				primary: '#e50914',
 				black_opa_40: 'rgba(0,0,0,.5)',
