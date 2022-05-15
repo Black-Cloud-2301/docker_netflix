@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.emailInput__hover:active {
+		top: 0;
+	}
+
+	.form__item--input {
+		@apply transition-all delay-300 ease-linear outline-none;
+	}
+
+	.form__item--label {
+		@apply left-4 top-[26%] text-xl pointer-events-none transition-all duration-300 ease-linear;
+	}
+
+	.form__item--input:focus + .form__item--label,
+	.form__item--input:valid + .form__item--label {
+		@apply text-xs font-semibold top-0;
+	}
+}

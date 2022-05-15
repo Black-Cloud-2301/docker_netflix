@@ -1,0 +1,25 @@
+echo "# docker_netflix_clone" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Black-Cloud-2301/docker_netflix_clone.git
+git push -u origin main
+
+
+yarn create react-app client --template redux-typescript
+yarn add -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+docker build -t <IMAGE NAME> .
+docker image ls
+docker image rm <IMAGE NAME>
+docker run -e CHOKIDAR_USEPOLLING=true -v ${pwd}\src:/app/src -d -p 3000:3000 --name <CONTAINER NAME> <IMAGE NAME>
+docker ps
+docker rm <CONTAINER NAME> -f
+docker exec -it <CONTAINER NAME> bash
+
+docker-compose up -d
+docker-compose down
+
