@@ -3,7 +3,7 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/Black-Cloud-2301/docker_netflix_clone.git
+git remote add origin https://github.com/Black-Cloud-2301/docker_netflix.git
 git push -u origin main
 
 
