@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { HomeQuestion } from '../../data/homeData';
 import FrequentlyQuestions, { QuestionProps } from './FrequentlyQuestions';
 
@@ -19,7 +20,7 @@ const SeventhItem = () => {
 					<input
 						type='text'
 						id='emailInput'
-						className='w-full h-12 lg:h-16 pl-4 text-black form__item--input'
+						className='w-full h-12 lg:h-16 pl-4 text-black form__item--input lg:rounded-r'
 						required
 					/>
 					<label
@@ -28,9 +29,10 @@ const SeventhItem = () => {
 					>
 						Email address
 					</label>
-					<button
+					<Link
+						to={'signUp'}
 						type='submit'
-						className='lg:absolute lg:right-0 lg:top-0 lg:h-16 lg:w-60 text-white bg-primary rounded lg:rounded-none lg:rounded-r mx-auto mt-4 lg:mt-0 px-4 py-2 lg:text-2xl lg:font-semibold flex justify-center items-center'
+						className='lg:absolute lg:right-0 lg:top-0 lg:h-16 w-40 lg:w-60 text-white bg-primary rounded lg:rounded-none lg:rounded-r mx-auto mt-4 lg:mt-0 px-4 py-2 lg:text-2xl lg:font-semibold flex justify-center items-center'
 					>
 						<p className='mb-1'>Get Started</p>
 						<img
@@ -38,7 +40,7 @@ const SeventhItem = () => {
 							alt='arrow_forward'
 							className='ml-4 w-4'
 						/>
-					</button>
+					</Link>
 				</div>
 			</div>
 		</section>

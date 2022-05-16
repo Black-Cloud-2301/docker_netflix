@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FirstItem = () => {
 	return (
@@ -50,7 +51,7 @@ const FirstItem = () => {
 						<input
 							type='text'
 							id='emailInput'
-							className='w-full h-12 lg:h-16 pl-4 text-black form__item--input rounded'
+							className='w-full h-12 lg:h-16 pl-4 text-black form__item--input lg:rounded-r'
 							required
 						/>
 						<label
@@ -59,9 +60,9 @@ const FirstItem = () => {
 						>
 							Email address
 						</label>
-						<button
-							type='submit'
-							className='lg:absolute lg:right-0 lg:top-0 lg:h-16 lg:w-60 text-white bg-primary rounded lg:rounded-none lg:rounded-r mx-auto mt-4 lg:mt-0 px-4 py-2 lg:text-2xl lg:font-semibold flex justify-center items-center'
+						<Link
+							to={'signUp'}
+							className='lg:absolute lg:right-0 lg:top-0 lg:h-16 w-40 lg:w-60 text-white bg-primary rounded lg:rounded-none lg:rounded-r mx-auto mt-4 lg:mt-0 px-4 py-2 lg:text-2xl lg:font-semibold flex justify-center items-center'
 						>
 							<p className='mb-1'>Get Started</p>
 							<img
@@ -69,7 +70,7 @@ const FirstItem = () => {
 								alt='arrow_forward'
 								className='ml-4 w-4'
 							/>
-						</button>
+						</Link>
 					</div>
 				</div>
 			</div>
