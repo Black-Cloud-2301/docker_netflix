@@ -8,8 +8,13 @@ const MainBody = () => {
 	const [learnMore, setLearnMore] = useState(false);
 
 	return (
-		<div className='bg-black'>
+		<div className='bg-black relative -z-20'>
 			<Header />
+			<img
+				src='/images/forgot-email-bg.jpg'
+				alt='forgot-email-bg'
+				className='absolute top-0 -z-10 min-w-[1500px] w-full min-h-[1000px] object-cover'
+			/>
 			<div className='max-w-[450px] mx-auto bg-neutral-100 p-5 sm:px-10'>
 				<h3 className='text-3xl font-semibold'>Forgot Email/Password</h3>
 				{!notRemember ? (

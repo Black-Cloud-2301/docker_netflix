@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
 	return (
-		<div className='w-full px-8 lg:px-12 2xl:px-20 text-neutral-500 font-medium pb-6 border-t sm:border-none border-neutral-400 bg-black'>
+		<div className='w-full px-8 lg:px-12 2xl:px-20 text-neutral-500 font-medium pb-6 border-t sm:border-none border-neutral-400 bg-black opacity-80'>
 			<div className='py-8'>
 				<a href='https://help.netflix.com/en/contactus'>
 					Questions? Contact us.
