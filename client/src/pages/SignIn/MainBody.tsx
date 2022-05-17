@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const MainBody = () => {
 	const [learnMore, setLearnMore] = useState(false);
@@ -13,12 +13,15 @@ const MainBody = () => {
 			/>
 			<div className='absolute top-0 bottom-0 left-0 right-0 opacity-60 bg-black' />
 			<div className='absolute min-h-[600px] sm:min-h-[800px] top-0 bottom-0 left-0 right-0 p-4 bg-black sm:bg-transparent'>
-				<div className='w-24 sm:w-32 flex justify-center items-center'>
+				<Link
+					to={'/'}
+					className='w-24 sm:w-32 flex justify-center items-center'
+				>
 					<img src='/images/netflix.png' alt='logo' />
-				</div>
+				</Link>
 				<div className='min-h-[600px] sm:max-w-[450px] m-auto sm:pb-4 sm:pt-12 px-4 sm:px-16 mt-4 sm:mt-12 bg-black'>
 					<h3 className='text-3xl text-white font-bold'>Sign In</h3>
-					<form action='' method='post' className='mt-5'>
+					<div className='mt-5'>
 						<div className='relative w-full'>
 							<input
 								type='text'
@@ -53,13 +56,10 @@ const MainBody = () => {
 								Password
 							</label>
 						</div>
-						<button
-							type='submit'
-							className='w-full h-12 text-white bg-red-600 hover:bg-red-500 rounded mt-10 sm:text-base font-semibold'
-						>
+						<button className='w-full h-12 text-white bg-red-600 hover:bg-red-500 rounded mt-10 sm:text-base font-semibold'>
 							Sign In
 						</button>
-					</form>
+					</div>
 					<div className='flex mt-3 justify-between items-center'>
 						<div className=''>
 							<input
@@ -75,19 +75,16 @@ const MainBody = () => {
 								Remember me
 							</label>
 						</div>
-						<NavLink to={'/forgotEmail'} className='text-neutral-400 text-sm'>
+						<Link to={'/forgotEmail'} className='text-neutral-400 text-sm'>
 							Need help?
-						</NavLink>
+						</Link>
 					</div>
 					<div>
 						<div className='flex mt-4 sm:mt-16'>
 							<p className='text-neutral-400'>New to Netflix?</p>
-							<NavLink
-								to={'signUp'}
-								className='text-white ml-2 hover:underline'
-							>
+							<Link to={'/signUp'} className='text-white ml-2 hover:underline'>
 								Sign up now
-							</NavLink>
+							</Link>
 						</div>
 						<p className='text-neutral-400 text-sm mt-4'>
 							This page is protected by Google reCAPTCHA to ensure you're not a

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './style.css';
 import Home from './pages/HomePage';
 import SignUp from './pages/SignUp';
@@ -13,6 +13,7 @@ function App() {
 				<Route path='signUp' element={<SignUp />} />
 				<Route path='signIn' element={<SignIn />} />
 				<Route path='forgotEmail' element={<ForgotEmail />} />
+				<Route path='*' element={<Navigate to='/' />} />
 			</Routes>
 		</BrowserRouter>
 	);

@@ -10,10 +10,13 @@ import SecondBody from './SecondBody';
 import SixthBody from './SixthBody';
 import ThirdBody from './ThirdBody';
 
+export type SelectedState = 'premium' | 'standard' | 'basic' | 'mobile';
+
 const SignUp = () => {
 	const navigate = useNavigate();
 	const [nextPage, setNextPage] = useState<number>(0);
 	const { signUpInfo } = useContext(SignUpContext);
+	const [selected, setSelected] = useState<SelectedState>('premium');
 
 	useEffect(() => {
 		if (!signUpInfo.email.includes('.') || !signUpInfo.email.includes('@'))
@@ -27,9 +30,17 @@ const SignUp = () => {
 			{nextPage === 0 && <FirstBody setNextPage={setNextPage} />}
 			{nextPage === 1 && <SecondBody setNextPage={setNextPage} />}
 			{nextPage === 2 && <ThirdBody setNextPage={setNextPage} />}
-			{nextPage === 3 && <FourthBody setNextPage={setNextPage} />}
+			{nextPage === 3 && (
+				<FourthBody
+					setNextPage={setNextPage}
+					selected={selected}
+					setSelected={setSelected}
+				/>
+			)}
 			{nextPage === 4 && <FifthBody setNextPage={setNextPage} />}
-			{nextPage === 5 && <SixthBody />}
+			{nextPage === 5 && (
+				<SixthBody setNextPage={setNextPage} selected={selected} />
+			)}
 			<Footer />
 		</div>
 	);

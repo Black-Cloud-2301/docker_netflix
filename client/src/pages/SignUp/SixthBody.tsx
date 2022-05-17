@@ -1,6 +1,30 @@
 import React from 'react';
+import { SelectedState } from '.';
 
-const SixthBody = () => {
+type Props = {
+	setNextPage: (val: number) => void;
+	selected: SelectedState;
+};
+
+const SixthBody: React.FC<Props> = ({ setNextPage, selected }) => {
+	let money: string = '';
+	switch (selected) {
+		case 'mobile':
+			money = '70000';
+			break;
+		case 'basic':
+			money = '180000';
+			break;
+		case 'standard':
+			money = '220000';
+			break;
+		case 'premium':
+			money = '260000';
+			break;
+		default:
+			break;
+	}
+
 	return (
 		<div className='max-w-xl mx-auto p-8 sm:px-12'>
 			<p className='text-sm'>
@@ -203,11 +227,16 @@ const SixthBody = () => {
 			<div className='flex justify-between items-center rounded bg-neutral-100 p-3 mt-4'>
 				<div>
 					<p className='font-semibold'>
-						70,000 <u>đ</u>/month
+						{money} <u>đ</u>/month
 					</p>
-					<p className='text-neutral-500'>Mobile Plan</p>
+					<p className='text-neutral-500 capitalize'>{selected} Plan</p>
 				</div>
-				<p className='text-blue-500 font-semibold'>Change</p>
+				<button
+					className='text-blue-500 font-semibold'
+					onClick={() => setNextPage(3)}
+				>
+					Change
+				</button>
 			</div>
 			<p className='text-sm text-neutral-500'>
 				Your payments will be processed internationally.
