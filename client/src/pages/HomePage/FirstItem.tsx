@@ -1,7 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { SignUpContext } from '../../components/store/SIgnUpContext';
 
 const FirstItem = () => {
+	const navigate = useNavigate();
+	const { signUpInfo, setSignUpInfo } = useContext(SignUpContext);
+	const [emailInput, setEmailInput] = useState<string>(signUpInfo.email);
+	const [isValid, setIsValid] = useState(true);
+
+	const handleClick = () => {
+		if (!emailInput.includes('.') || !emailInput.includes('@')) {
+			setIsValid(false);
+		} else {
+			setIsValid(true);
+			setSignUpInfo({
+				email: emailInput,
+				password: '',
+			});
+			navigate('/signUp');
+		}
+	};
+
 	return (
 		<section className='relative border-b-8 border-neutral-800'>
 			<img
@@ -31,9 +50,12 @@ const FirstItem = () => {
 								</option>
 							</select>
 						</div>
-						<button className='text-white bg-primary hover:opacity-80 rounded px-2 py-1 text-xs sm:text-base font-semibold'>
+						<NavLink
+							to={'signIn'}
+							className='text-white bg-primary hover:opacity-80 rounded px-2 py-1 text-xs sm:text-base font-semibold'
+						>
 							Sign In
-						</button>
+						</NavLink>
 					</div>
 				</header>
 				<div className='text-white flex flex-col justify-center items-center h-full w-10/12 lg:w-8/12 2xl:w-6/12 mx-auto'>
@@ -52,7 +74,9 @@ const FirstItem = () => {
 							type='text'
 							id='emailInput'
 							className='w-full h-12 lg:h-16 pl-4 text-black form__item--input lg:rounded-r'
+							value={emailInput}
 							required
+							onChange={(e) => setEmailInput(e.target.value)}
 						/>
 						<label
 							htmlFor='emailInput'
@@ -60,9 +84,14 @@ const FirstItem = () => {
 						>
 							Email address
 						</label>
-						<Link
-							to={'signUp'}
+						{!isValid && (
+							<p className='text-orange-500'>
+								Please enter a valid email address
+							</p>
+						)}
+						<button
 							className='lg:absolute lg:right-0 lg:top-0 lg:h-16 w-40 lg:w-60 text-white bg-primary rounded lg:rounded-none lg:rounded-r mx-auto mt-4 lg:mt-0 px-4 py-2 lg:text-2xl lg:font-semibold flex justify-center items-center'
+							onClick={handleClick}
 						>
 							<p className='mb-1'>Get Started</p>
 							<img
@@ -70,7 +99,7 @@ const FirstItem = () => {
 								alt='arrow_forward'
 								className='ml-4 w-4'
 							/>
-						</Link>
+						</button>
 					</div>
 				</div>
 			</div>

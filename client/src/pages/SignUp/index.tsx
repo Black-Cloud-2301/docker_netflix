@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SignUpContext } from '../../components/store/SIgnUpContext';
 import FifthBody from './FifthBody';
 import FirstBody from './FirstBody';
 import Footer from './Footer';
@@ -9,16 +11,24 @@ import SixthBody from './SixthBody';
 import ThirdBody from './ThirdBody';
 
 const SignUp = () => {
-	const [nextPage, setNextPage] = useState<number>(5);
+	const navigate = useNavigate();
+	const [nextPage, setNextPage] = useState<number>(0);
+	const { signUpInfo } = useContext(SignUpContext);
+
+	useEffect(() => {
+		if (!signUpInfo.email.includes('.') || !signUpInfo.email.includes('@'))
+			navigate('/');
+		console.log('SignUp page active useEffect');
+	}, [navigate, signUpInfo.email]);
 
 	return (
 		<div>
 			<Header />
-			{nextPage === 0 && <FirstBody />}
-			{nextPage === 1 && <SecondBody />}
-			{nextPage === 2 && <ThirdBody />}
-			{nextPage === 3 && <FourthBody />}
-			{nextPage === 4 && <FifthBody />}
+			{nextPage === 0 && <FirstBody setNextPage={setNextPage} />}
+			{nextPage === 1 && <SecondBody setNextPage={setNextPage} />}
+			{nextPage === 2 && <ThirdBody setNextPage={setNextPage} />}
+			{nextPage === 3 && <FourthBody setNextPage={setNextPage} />}
+			{nextPage === 4 && <FifthBody setNextPage={setNextPage} />}
 			{nextPage === 5 && <SixthBody />}
 			<Footer />
 		</div>

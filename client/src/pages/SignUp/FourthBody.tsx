@@ -1,6 +1,7 @@
 import React from 'react';
+import { Props } from './FirstBody';
 
-const FourthBody = () => {
+const FourthBody: React.FC<Props> = ({ setNextPage }) => {
 	return (
 		<div className='max-w-4xl mt-8 px-8 mx-auto'>
 			<p className='text-sm'>
@@ -20,8 +21,8 @@ const FourthBody = () => {
 						className='mt-1'
 					>
 						<path
-							fill-rule='evenodd'
-							clip-rule='evenodd'
+							fillRule='evenodd'
+							clipRule='evenodd'
 							d='M8.68239 19.7312L23.6824 5.73115L22.3178 4.26904L8.02404 17.6098L2.70718 12.293L1.29297 13.7072L7.29297 19.7072C7.67401 20.0882 8.28845 20.0988 8.68239 19.7312Z'
 							fill='#e50914'
 						></path>
@@ -40,8 +41,8 @@ const FourthBody = () => {
 						className='mt-1'
 					>
 						<path
-							fill-rule='evenodd'
-							clip-rule='evenodd'
+							fillRule='evenodd'
+							clipRule='evenodd'
 							d='M8.68239 19.7312L23.6824 5.73115L22.3178 4.26904L8.02404 17.6098L2.70718 12.293L1.29297 13.7072L7.29297 19.7072C7.67401 20.0882 8.28845 20.0988 8.68239 19.7312Z'
 							fill='#e50914'
 						></path>
@@ -60,8 +61,8 @@ const FourthBody = () => {
 						className='mt-1'
 					>
 						<path
-							fill-rule='evenodd'
-							clip-rule='evenodd'
+							fillRule='evenodd'
+							clipRule='evenodd'
 							d='M8.68239 19.7312L23.6824 5.73115L22.3178 4.26904L8.02404 17.6098L2.70718 12.293L1.29297 13.7072L7.29297 19.7072C7.67401 20.0882 8.28845 20.0988 8.68239 19.7312Z'
 							fill='#e50914'
 						></path>
@@ -162,8 +163,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M6 0C4.89543 0 4 0.895431 4 2V22C4 23.1046 4.89543 24 6 24H18C19.1046 24 20 23.1046 20 22V2C20 0.89543 19.1046 0 18 0H6ZM6 2L18 2V22H6V2ZM13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20C12.8284 20 13.5 19.3284 13.5 18.5Z'
 									fill='currentColor'
 								></path>
@@ -181,8 +182,8 @@ const FourthBody = () => {
 								className='mx-auto -rotate-90'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M6 0C4.89543 0 4 0.895431 4 2V22C4 23.1046 4.89543 24 6 24H18C19.1046 24 20 23.1046 20 22V2C20 0.89543 19.1046 0 18 0H6ZM6 2L18 2V22H6V2ZM13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20C12.8284 20 13.5 19.3284 13.5 18.5Z'
 									fill='currentColor'
 								></path>
@@ -202,8 +203,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M6 0C4.89543 0 4 0.895431 4 2V22C4 23.1046 4.89543 24 6 24H18C19.1046 24 20 23.1046 20 22V2C20 0.89543 19.1046 0 18 0H6ZM6 2L18 2V22H6V2ZM13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20C12.8284 20 13.5 19.3284 13.5 18.5Z'
 									fill='currentColor'
 								></path>
@@ -221,8 +222,8 @@ const FourthBody = () => {
 								className='mx-auto -rotate-90'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M6 0C4.89543 0 4 0.895431 4 2V22C4 23.1046 4.89543 24 6 24H18C19.1046 24 20 23.1046 20 22V2C20 0.89543 19.1046 0 18 0H6ZM6 2L18 2V22H6V2ZM13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20C12.8284 20 13.5 19.3284 13.5 18.5Z'
 									fill='currentColor'
 								></path>
@@ -240,8 +241,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M2 3C0.895431 3 0 3.89543 0 5V14C0 15.1046 0.895431 16 2 16H22C23.1046 16 24 15.1046 24 14V5C24 3.89543 23.1046 3 22 3H2ZM2 5L22 5V14H2V5ZM2.1072 20.5232C5.27786 20.1813 8.59078 20 12 20C15.4092 20 18.7221 20.1813 21.8928 20.5232L22.1072 18.5347C18.8643 18.1851 15.4798 18 12 18C8.52024 18 5.13573 18.1851 1.8928 18.5347L2.1072 20.5232Z'
 									fill='currentColor'
 								></path>
@@ -259,8 +260,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M3.99997 3C2.8954 3 1.99997 3.89543 1.99997 5V14C1.99997 15.1046 2.8954 16 3.99997 16H20C21.1045 16 22 15.1046 22 14V5C22 3.89543 21.1045 3 20 3H3.99997ZM3.99997 5L20 5V14H3.99997V5ZM1.11859 20.6355C4.58689 20.2212 8.23466 20 12 20C15.7653 20 19.413 20.2212 22.8813 20.6355L23.1186 18.6497C19.5701 18.2257 15.8431 18 12 18C8.15686 18 4.42984 18.2257 0.881348 18.6497L1.11859 20.6355Z'
 									fill='currentColor'
 								></path>
@@ -280,8 +281,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M6 0C4.89543 0 4 0.895431 4 2V22C4 23.1046 4.89543 24 6 24H18C19.1046 24 20 23.1046 20 22V2C20 0.89543 19.1046 0 18 0H6ZM6 2L18 2V22H6V2ZM13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20C12.8284 20 13.5 19.3284 13.5 18.5Z'
 									fill='currentColor'
 								></path>
@@ -299,8 +300,8 @@ const FourthBody = () => {
 								className='mx-auto -rotate-90'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M6 0C4.89543 0 4 0.895431 4 2V22C4 23.1046 4.89543 24 6 24H18C19.1046 24 20 23.1046 20 22V2C20 0.89543 19.1046 0 18 0H6ZM6 2L18 2V22H6V2ZM13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20C12.8284 20 13.5 19.3284 13.5 18.5Z'
 									fill='currentColor'
 								></path>
@@ -318,8 +319,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M2 3C0.895431 3 0 3.89543 0 5V14C0 15.1046 0.895431 16 2 16H22C23.1046 16 24 15.1046 24 14V5C24 3.89543 23.1046 3 22 3H2ZM2 5L22 5V14H2V5ZM2.1072 20.5232C5.27786 20.1813 8.59078 20 12 20C15.4092 20 18.7221 20.1813 21.8928 20.5232L22.1072 18.5347C18.8643 18.1851 15.4798 18 12 18C8.52024 18 5.13573 18.1851 1.8928 18.5347L2.1072 20.5232Z'
 									fill='currentColor'
 								></path>
@@ -337,8 +338,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M3.99997 3C2.8954 3 1.99997 3.89543 1.99997 5V14C1.99997 15.1046 2.8954 16 3.99997 16H20C21.1045 16 22 15.1046 22 14V5C22 3.89543 21.1045 3 20 3H3.99997ZM3.99997 5L20 5V14H3.99997V5ZM1.11859 20.6355C4.58689 20.2212 8.23466 20 12 20C15.7653 20 19.413 20.2212 22.8813 20.6355L23.1186 18.6497C19.5701 18.2257 15.8431 18 12 18C8.15686 18 4.42984 18.2257 0.881348 18.6497L1.11859 20.6355Z'
 									fill='currentColor'
 								></path>
@@ -358,8 +359,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M6 0C4.89543 0 4 0.895431 4 2V22C4 23.1046 4.89543 24 6 24H18C19.1046 24 20 23.1046 20 22V2C20 0.89543 19.1046 0 18 0H6ZM6 2L18 2V22H6V2ZM13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20C12.8284 20 13.5 19.3284 13.5 18.5Z'
 									fill='currentColor'
 								></path>
@@ -377,8 +378,8 @@ const FourthBody = () => {
 								className='mx-auto -rotate-90'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M6 0C4.89543 0 4 0.895431 4 2V22C4 23.1046 4.89543 24 6 24H18C19.1046 24 20 23.1046 20 22V2C20 0.89543 19.1046 0 18 0H6ZM6 2L18 2V22H6V2ZM13.5 18.5C13.5 17.6716 12.8284 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20C12.8284 20 13.5 19.3284 13.5 18.5Z'
 									fill='currentColor'
 								></path>
@@ -396,8 +397,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M2 3C0.895431 3 0 3.89543 0 5V14C0 15.1046 0.895431 16 2 16H22C23.1046 16 24 15.1046 24 14V5C24 3.89543 23.1046 3 22 3H2ZM2 5L22 5V14H2V5ZM2.1072 20.5232C5.27786 20.1813 8.59078 20 12 20C15.4092 20 18.7221 20.1813 21.8928 20.5232L22.1072 18.5347C18.8643 18.1851 15.4798 18 12 18C8.52024 18 5.13573 18.1851 1.8928 18.5347L2.1072 20.5232Z'
 									fill='currentColor'
 								></path>
@@ -415,8 +416,8 @@ const FourthBody = () => {
 								className='mx-auto'
 							>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M3.99997 3C2.8954 3 1.99997 3.89543 1.99997 5V14C1.99997 15.1046 2.8954 16 3.99997 16H20C21.1045 16 22 15.1046 22 14V5C22 3.89543 21.1045 3 20 3H3.99997ZM3.99997 5L20 5V14H3.99997V5ZM1.11859 20.6355C4.58689 20.2212 8.23466 20 12 20C15.7653 20 19.413 20.2212 22.8813 20.6355L23.1186 18.6497C19.5701 18.2257 15.8431 18 12 18C8.15686 18 4.42984 18.2257 0.881348 18.6497L1.11859 20.6355Z'
 									fill='currentColor'
 								></path>
@@ -444,7 +445,10 @@ const FourthBody = () => {
 				and Mobile.
 			</p>
 			<div className='flex justify-center items-center'>
-				<button className='w-full max-w-md text-white bg-primary rounded mt-6 mb-40 py-3 text-3xl hover:bg-red-500'>
+				<button
+					className='w-full max-w-md text-white bg-primary rounded mt-6 mb-40 py-3 text-3xl hover:bg-red-500'
+					onClick={() => setNextPage(4)}
+				>
 					Next
 				</button>
 			</div>

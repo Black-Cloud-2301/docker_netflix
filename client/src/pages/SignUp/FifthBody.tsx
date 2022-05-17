@@ -1,6 +1,7 @@
 import React from 'react';
+import { Props } from './FirstBody';
 
-const FifthBody = () => {
+const FifthBody: React.FC<Props> = ({ setNextPage }) => {
 	return (
 		<div className='max-w-xl sm:text-center mx-auto px-8 sm:px-16'>
 			<img
@@ -28,7 +29,10 @@ const FifthBody = () => {
 					</g>
 				</svg>
 			</div>
-			<div className='flex justify-between items-center border-2 rounded-lg p-4 mb-40'>
+			<div
+				className='flex justify-between items-center border-2 rounded-lg p-4 mb-40 cursor-pointer'
+				onClick={() => setNextPage(5)}
+			>
 				<div className='sm:flex gap-4'>
 					<p className='text-lg mb-2 sm:mb-0'>Credit or Debit Card</p>
 					<div className='flex gap-2'>
@@ -41,8 +45,8 @@ const FifthBody = () => {
 								<g>
 									<path
 										d='M8 99c-3.8 0-7-3.2-7-7V8c0-3.8 3.2-7 7-7h144c3.8 0 7 3.2 7 7v84c0 3.8-3.2 7-7 7H8z'
-										fill-rule='evenodd'
-										clip-rule='evenodd'
+										fillRule='evenodd'
+										clipRule='evenodd'
 										fill='#fff'
 									/>
 									<path
@@ -57,8 +61,8 @@ const FifthBody = () => {
 										x2='133.468'
 										y2='39.797'
 									>
-										<stop offset='0' stop-color='#22275d' />
-										<stop offset='1' stop-color='#24479b' />
+										<stop offset='0' stopColor='#22275d' />
+										<stop offset='1' stopColor='#24479b' />
 									</linearGradient>
 									<path
 										d='M79.4 31.5l-7.9 37h-9.6l7.9-37h9.6zm40.3 23.9l5-13.9 2.9 13.9h-7.9zm10.7 13.2h8.9l-7.7-37h-8.2c-1.8 0-3.4 1.1-4.1 2.7l-14.4 34.3H115l2-5.5h12.3l1.1 5.5zm-25-12.1c0-9.8-13.5-10.3-13.4-14.7 0-1.3 1.3-2.7 4.1-3.1 1.4-.2 5.2-.3 9.4 1.7l1.7-7.9c-2.3-.8-5.3-1.6-9-1.6-9.5 0-16.1 5-16.2 12.2-.1 5.3 4.8 8.3 8.4 10.1 3.7 1.8 5 3 5 4.6 0 2.5-3 3.6-5.7 3.6-4.8.1-7.6-1.3-9.8-2.3l-1.7 8.1c2.2 1 6.4 1.9 10.7 2 9.9-.1 16.5-5 16.5-12.7m-39.7-25l-15.5 37H40.1L32.4 39c-.5-1.8-.9-2.5-2.3-3.3-2.3-1.2-6.1-2.4-9.5-3.1l.2-1.1h16.3c2.1 0 3.9 1.4 4.4 3.8l4 21.4 10-25.2h10.2z'
@@ -74,8 +78,8 @@ const FifthBody = () => {
 						>
 							<path
 								d='M8 99c-3.8 0-7-3.2-7-7V8c0-3.8 3.2-7 7-7h144c3.8 0 7 3.2 7 7v84c0 3.8-3.2 7-7 7H8z'
-								fill-rule='evenodd'
-								clip-rule='evenodd'
+								fillRule='evenodd'
+								clipRule='evenodd'
 							/>
 							<path
 								d='M152 2c3.3 0 6 2.7 6 6v84c0 3.3-2.7 6-6 6H8c-3.3 0-6-2.7-6-6V8c0-3.3 2.7-6 6-6h144zm0-2H8C3.6 0 0 3.6 0 8v84c0 4.4 3.6 8 8 8h144c4.4 0 8-3.6 8-8V8c0-4.4-3.6-8-8-8z'
@@ -109,8 +113,8 @@ const FifthBody = () => {
 								<g>
 									<path
 										d='M8 99c-3.8 0-7-3.2-7-7V8c0-3.8 3.2-7 7-7h144c3.8 0 7 3.2 7 7v84c0 3.8-3.2 7-7 7H8z'
-										fill-rule='evenodd'
-										clip-rule='evenodd'
+										fillRule='evenodd'
+										clipRule='evenodd'
 										fill='#fff'
 									/>
 									<path
