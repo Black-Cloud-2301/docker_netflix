@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SignUpContext } from '../../components/store/SIgnUpContext';
 
 const FirstItem = () => {
@@ -50,12 +50,12 @@ const FirstItem = () => {
 								</option>
 							</select>
 						</div>
-						<NavLink
-							to={'signIn'}
+						<Link
+							to={'/signIn'}
 							className='text-white bg-primary hover:opacity-80 rounded px-2 py-1 text-xs sm:text-base font-semibold'
 						>
 							Sign In
-						</NavLink>
+						</Link>
 					</div>
 				</header>
 				<div className='text-white flex flex-col justify-center items-center h-full w-10/12 lg:w-8/12 2xl:w-6/12 mx-auto'>

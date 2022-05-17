@@ -6,7 +6,9 @@ const ForgotEmail = () => {
 	return (
 		<>
 			<MainBody />
-			<Footer />
+			<div className='absolute -bottom-60 w-full'>
+				<Footer />
+			</div>
 		</>
 	);
 };
