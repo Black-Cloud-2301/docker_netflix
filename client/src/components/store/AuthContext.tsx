@@ -3,6 +3,7 @@ import {
 	Dispatch,
 	ReactNode,
 	SetStateAction,
+	useCallback,
 	useContext,
 	useState,
 } from 'react';
@@ -27,7 +28,7 @@ export const useAuthContext = () => useContext(AuthContext);
 const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-	const checkAuth = async () => {
+	const checkAuth = useCallback(async () => {
 		const token = JWTManager.getToken();
 
 		if (token) setIsAuthenticated(true);
@@ -35,7 +36,7 @@ const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 			const success = await JWTManager.getRefreshToken();
 			if (success) setIsAuthenticated(true);
 		}
-	};
+	}, []);
 
 	const logoutClient = () => {
 		JWTManager.deleteToken();

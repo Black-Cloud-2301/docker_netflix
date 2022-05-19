@@ -12,7 +12,6 @@ import 'reflect-metadata';
 import { buildSchema } from 'type-graphql';
 import { createConnection } from 'typeorm';
 import { User } from './entities/User';
-import { GreetingResolver } from './resolvers/greeting';
 import { UserResolver } from './resolvers/user';
 import refreshTokenRouter from './routes/refreshTokenRouter';
 import { Context } from './types/Context';
@@ -21,7 +20,7 @@ const main = async () => {
 	await createConnection({
 		type: 'postgres',
 		database: 'netfake',
-		port: 5432,
+		port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
 		username: process.env.DB_USERNAME,
 		password: process.env.DB_PASSWORD,
 		logging: true,
@@ -40,7 +39,7 @@ const main = async () => {
 	const apolloServer = new ApolloServer({
 		schema: await buildSchema({
 			validate: false,
-			resolvers: [GreetingResolver, UserResolver],
+			resolvers: [UserResolver],
 		}),
 		plugins: [
 			ApolloServerPluginDrainHttpServer({ httpServer }),

@@ -7,10 +7,10 @@ import MainBody from './MainBody';
 const SignIn = () => {
 	const navigate = useNavigate();
 	const { isAuthenticated } = useAuthContext();
+
 	useEffect(() => {
 		if (isAuthenticated) navigate('/browse');
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isAuthenticated, navigate]);
 
 	return (
 		<>

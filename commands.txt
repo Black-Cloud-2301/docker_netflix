@@ -31,6 +31,7 @@ docker run -e CHOKIDAR_USEPOLLING=true -v ${pwd}\src:/app/src -d -p 3000:3000 --
 docker ps
 docker rm <CONTAINER NAME> -f
 docker exec -it <CONTAINER NAME> bash
+docker run --name postgres-db -e POSTGRES_PASSWORD=123456 -p 4321:5432 -d postgres
 
 docker-compose up -d
 docker-compose down

@@ -10,8 +10,7 @@ const ForgotEmail = () => {
 
 	useEffect(() => {
 		if (isAuthenticated) navigate('/browse');
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isAuthenticated, navigate]);
 
 	return (
 		<>

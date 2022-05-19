@@ -19,8 +19,7 @@ function App() {
 			setLoading(false);
 		};
 		authenticate();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [checkAuth]);
 
 	if (loading) return <div className='w-screen h-screen bg-black'></div>;
 

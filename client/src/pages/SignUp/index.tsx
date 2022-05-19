@@ -22,8 +22,7 @@ const SignUp = () => {
 
 	useEffect(() => {
 		if (isAuthenticated) navigate('/browse');
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isAuthenticated, navigate]);
 
 	useEffect(() => {
 		if (!signUpInfo.email.includes('.') || !signUpInfo.email.includes('@'))
