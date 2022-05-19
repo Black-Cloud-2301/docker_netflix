@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { SignUpContext } from '../../components/store/SIgnUpContext';
+import { useRegisterMutation } from '../../graphql/generated/graphql';
 import { Props } from './FirstBody';
 
-interface ISValidState {
+export interface ISValidState {
 	status: boolean;
 	message: string;
 }
@@ -14,6 +15,7 @@ const SecondBody: React.FC<Props> = ({ setNextPage }) => {
 		status: true,
 		message: '',
 	});
+	const [register] = useRegisterMutation();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setForm((prevState) => ({
@@ -22,7 +24,8 @@ const SecondBody: React.FC<Props> = ({ setNextPage }) => {
 		}));
 	};
 
-	const handleClick = () => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
 		if (!form.password) {
 			setIsValid({ status: false, message: 'Please enter your password' });
 		} else if (form.password.length < 6) {
@@ -31,11 +34,11 @@ const SecondBody: React.FC<Props> = ({ setNextPage }) => {
 				message: `Please use at least 6 character. You are currently using ${form.password.length} character`,
 			});
 		} else {
-			const userData = {
-				email: form.email,
-				password: form.password,
-			};
-			console.log(userData);
+			await register({
+				variables: {
+					registerInput: { email: form.email, password: form.password },
+				},
+			});
 			setNextPage(2);
 		}
 	};
@@ -55,10 +58,13 @@ const SecondBody: React.FC<Props> = ({ setNextPage }) => {
 			</h4>
 			<h5 className='mt-4'>Email</h5>
 			<p className='font-semibold'>{signUpInfo.email}</p>
-			<div className='mt-5 relative w-full'>
+			<form
+				method='post'
+				className='mt-5 relative w-full'
+				onSubmit={handleSubmit}
+			>
 				<input
-					type='text'
-					id='password'
+					type='password'
 					name='password'
 					value={form.password}
 					className='w-full h-[3.75rem] pl-4 text-black form__item--input rounded border'
@@ -78,12 +84,12 @@ const SecondBody: React.FC<Props> = ({ setNextPage }) => {
 					Forgot your password?
 				</p>
 				<button
+					type='submit'
 					className='w-full text-white bg-primary rounded lg:mt-0 py-4 text-3xl hover:bg-red-500 mb-40'
-					onClick={handleClick}
 				>
 					Next
 				</button>
-			</div>
+			</form>
 		</div>
 	);
 };

@@ -3,15 +3,48 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import SignUpContextProvider from './components/store/SIgnUpContext';
 import reportWebVitals from './reportWebVitals';
+import {
+	ApolloClient,
+	ApolloProvider,
+	createHttpLink,
+	InMemoryCache,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import JWTManager from './utils/jwt';
+import AuthContextProvider from './components/store/AuthContext';
+
+const httpLink = createHttpLink({
+	uri: 'http://localhost:4000/graphql',
+	credentials: 'include',
+});
+
+const authLink = setContext((_, { headers }) => {
+	const token = JWTManager.getToken();
+	return {
+		headers: {
+			...headers,
+			authorization: token ? `Bearer ${token}` : '',
+		},
+	};
+});
+
+const client = new ApolloClient({
+	link: authLink.concat(httpLink),
+	cache: new InMemoryCache(),
+});
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 root.render(
 	<React.StrictMode>
-		<SignUpContextProvider>
-			<App />
-		</SignUpContextProvider>
+		<ApolloProvider client={client}>
+			<AuthContextProvider>
+				<SignUpContextProvider>
+					<App />
+				</SignUpContextProvider>
+			</AuthContextProvider>
+		</ApolloProvider>
 	</React.StrictMode>
 );
 

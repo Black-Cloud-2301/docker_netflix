@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FifthItem = () => {
 	return (
 		<section className='flex flex-col-reverse lg:flex-row lg:px-20 py-12 border-b-8 border-neutral-800 gap-5'>

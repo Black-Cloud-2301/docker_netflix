@@ -10,7 +10,19 @@ git push -u origin main
 yarn create react-app client --template redux-typescript
 yarn add -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
-
+yarn add @apollo/client graphql
+yarn add -D @graphql-codegen/cli
+yarn graphql-codegen init
+  {
+    http://localhost:4000/graphql
+    src/graphql/**/*.graphql
+    n
+    src/graphql/generated/graphql.tsx
+    codegen
+  }
+yarn install
+yarn codegen
+yarn add jwt-decode
 
 docker build -t <IMAGE NAME> .
 docker image ls
@@ -23,3 +35,9 @@ docker exec -it <CONTAINER NAME> bash
 docker-compose up -d
 docker-compose down
 
+yarn init
+yarn add pg express apollo-server-express apollo-server-core graphql typeorm type-graphql reflect-metadata class-validator dotenv argon2 cors jsonwebtoken
+yarn add -D typescipt @types/node nodemon @types/express @types/cors @types/jsonwebtoken
+tsconfig.json
+yarn add cookie-parser
+yarn add -D @types/cookie-parser

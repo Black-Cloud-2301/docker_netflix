@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../components/store/AuthContext';
 import { SignUpContext } from '../../components/store/SIgnUpContext';
 import FifthBody from './FifthBody';
 import FirstBody from './FirstBody';
@@ -14,9 +15,15 @@ export type SelectedState = 'premium' | 'standard' | 'basic' | 'mobile';
 
 const SignUp = () => {
 	const navigate = useNavigate();
+	const { isAuthenticated } = useAuthContext();
 	const [nextPage, setNextPage] = useState<number>(0);
 	const { signUpInfo } = useContext(SignUpContext);
 	const [selected, setSelected] = useState<SelectedState>('premium');
+
+	useEffect(() => {
+		if (isAuthenticated) navigate('/browse');
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	useEffect(() => {
 		if (!signUpInfo.email.includes('.') || !signUpInfo.email.includes('@'))

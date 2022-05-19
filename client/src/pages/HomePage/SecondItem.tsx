@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SecondItem = () => {
 	return (
 		<section className='min-h-[480px] sm:min-h-[640px] 2xl:mx-auto lg:h-auto lg:py-20 lg:flex px-2 2xl:px-40 lg:px-16 lg:gap-x-10 2xl:gap-x-20 border-b-8 border-neutral-800'>

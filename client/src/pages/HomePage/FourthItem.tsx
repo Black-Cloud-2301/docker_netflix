@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FourthItem = () => {
 	return (
 		<section className='text-white py-16 px-2 lg:px-20 2xl:px-40 border-b-8 border-neutral-800'>

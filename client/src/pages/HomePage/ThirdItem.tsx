@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ThirdItem = () => {
 	return (
 		<section className='flex flex-col-reverse lg:flex-row justify-center lg:p-8 lg:gap-x-10 border-b-8 border-neutral-800'>

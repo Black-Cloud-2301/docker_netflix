@@ -1,8 +1,134 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../components/store/AuthContext';
+import { useLoginMutation } from '../../graphql/generated/graphql';
+import JWTManager from '../../utils/jwt';
+
+interface FormInputState {
+	email: string;
+	password: string;
+}
+
+interface IsValidState {
+	email: {
+		status: boolean;
+		message: string;
+	};
+	password: {
+		status: boolean;
+		message: string;
+	};
+}
 
 const MainBody = () => {
-	const [learnMore, setLearnMore] = useState(false);
+	const navigate = useNavigate();
+	const { setIsAuthenticated } = useAuthContext();
+	const [learnMore, setLearnMore] = useState<boolean>(false);
+	const [checked, setChecked] = useState<boolean>(true);
+	const [formInput, setFormInput] = useState<FormInputState>({
+		email: '',
+		password: '',
+	});
+	const [isValid, setIsValid] = useState<IsValidState>({
+		email: { status: true, message: '' },
+		password: { status: true, message: '' },
+	});
+
+	const [login] = useLoginMutation();
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setFormInput((prevState) => ({
+			...prevState,
+			[e.target.name]: e.target.value.trim(),
+		}));
+	};
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		let flag = true;
+		if (!formInput.email) {
+			flag = false;
+			setIsValid((prevState) => ({
+				...prevState,
+				email: { status: false, message: 'Please enter your email' },
+			}));
+			console.log(isValid);
+		} else if (
+			!formInput.email.includes('@') ||
+			!formInput.email.includes('.')
+		) {
+			flag = false;
+			setIsValid((prevState) => ({
+				...prevState,
+				email: {
+					status: false,
+					message: `Please enter valid email`,
+				},
+			}));
+		} else {
+			setIsValid((prevState) => ({
+				...prevState,
+				email: {
+					status: true,
+					message: '',
+				},
+			}));
+		}
+		if (!formInput.password) {
+			flag = false;
+			setIsValid((prevState) => ({
+				...prevState,
+				password: { status: false, message: 'Please enter your password' },
+			}));
+		} else if (formInput.password.length < 6) {
+			flag = false;
+			setIsValid((prevState) => ({
+				...prevState,
+				password: {
+					status: false,
+					message: `Please use at least 6 character. You are currently using ${formInput.password.length} character`,
+				},
+			}));
+		} else {
+			setIsValid((prevState) => ({
+				...prevState,
+				password: {
+					status: true,
+					message: '',
+				},
+			}));
+		}
+		if (flag) {
+			const response = await login({
+				variables: {
+					loginInput: { email: formInput.email, password: formInput.password },
+				},
+			});
+			if (response.data?.login.success) {
+				JWTManager.setToken(response.data.login.accessToken as string);
+				setIsAuthenticated(true);
+				navigate('/');
+			} else {
+				if (response.data?.login.field === 'password') {
+					setIsValid((prevState) => ({
+						...prevState,
+						password: {
+							status: false,
+							message: response.data?.login.message ?? '',
+						},
+					}));
+				} else if (response.data?.login.field === 'email') {
+					setIsValid((prevState) => ({
+						...prevState,
+						email: {
+							status: false,
+							message: response.data?.login.message ?? '',
+						},
+					}));
+				}
+			}
+		}
+	};
 
 	return (
 		<div className='relative min-h-[700px]'>
@@ -20,33 +146,44 @@ const MainBody = () => {
 					<img src='/images/netflix.png' alt='logo' />
 				</Link>
 				<div className='min-h-[600px] sm:max-w-[450px] m-auto sm:pb-4 sm:pt-12 px-4 sm:px-16 mt-4 sm:mt-12 bg-black'>
-					<h3 className='text-3xl text-white font-bold'>Sign In</h3>
-					<div className='mt-5'>
+					<h3 className='text-3xl text-white font-bold mb-5'>Sign In</h3>
+					<form method='post' className='' onSubmit={handleSubmit}>
 						<div className='relative w-full'>
 							<input
 								type='text'
-								id='password'
-								name='password'
-								// value={form.password}
-								className='w-full h-[3rem] pl-4 bg-neutral-700 text-white font-medium form__item--input rounded'
-								// onChange={handleChange}
+								name='email'
+								value={formInput.email}
+								className={
+									isValid.email.status
+										? 'w-full h-[3rem] pl-4 bg-neutral-700 text-white font-medium form__item--input rounded'
+										: 'w-full h-[3rem] pl-4 bg-neutral-700 border border-orange-500 text-white font-medium form__item--input rounded'
+								}
+								autoComplete='off'
+								onChange={handleChange}
 								required
 							/>
 							<label
-								htmlFor='password'
+								htmlFor='email'
 								className='absolute text-neutral-400 top-3 lg:text-lg form__item--label'
 							>
 								Email or phone number
 							</label>
+							{!isValid.email.status && (
+								<p className='text-orange-500'>{isValid.email.message}</p>
+							)}
 						</div>
 						<div className='relative w-full mt-5'>
 							<input
-								type='text'
-								id='password'
+								type='password'
 								name='password'
-								// value={form.password}
-								className='w-full h-[3rem] pl-4 bg-neutral-700 text-white font-medium form__item--input rounded'
-								// onChange={handleChange}
+								value={formInput.password}
+								className={
+									isValid.password.status
+										? 'w-full h-[3rem] pl-4 bg-neutral-700 text-white font-medium form__item--input rounded'
+										: 'w-full h-[3rem] pl-4 bg-neutral-700 border border-orange-500 text-white font-medium form__item--input rounded'
+								}
+								autoComplete='off'
+								onChange={handleChange}
 								required
 							/>
 							<label
@@ -55,17 +192,25 @@ const MainBody = () => {
 							>
 								Password
 							</label>
+							{!isValid.password.status && (
+								<p className='text-orange-500'>{isValid.password.message}</p>
+							)}
 						</div>
-						<button className='w-full h-12 text-white bg-red-600 hover:bg-red-500 rounded mt-10 sm:text-base font-semibold'>
+						<button
+							type='submit'
+							className='w-full h-12 text-white bg-red-600 hover:bg-red-500 rounded mt-10 sm:text-base font-semibold'
+						>
 							Sign In
 						</button>
-					</div>
+					</form>
 					<div className='flex mt-3 justify-between items-center'>
 						<div className=''>
 							<input
 								type='checkbox'
 								name='agree'
 								id='agree'
+								checked={checked}
+								onChange={() => setChecked(!checked)}
 								className='h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-neutral-400 checked:border-neutral-400 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2'
 							/>
 							<label
